@@ -1,0 +1,14 @@
+{
+  "realm": "tp4-projet-gestion-notes",
+  "auth-server-url": "http://localhost:8081/",
+  "ssl-required": "external",
+  "resource": "application-universite",
+  "verify-token-audience": true,
+  "credentials": {
+    "secret": "wVfpFddb1clO5U0GfRZvIzY8mmubs6jJ"
+  },
+  "confidential-port": 0,
+  "policy-enforcer": {
+    "credentials": {}
+  }
+}
