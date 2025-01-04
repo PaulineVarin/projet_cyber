@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keycloak Example</title>
+</head>
+<body>
+    <h1>Valider les notes</h1>
+
+    <% if (user) { %>
+        <p>Bienvenue, <%= user.name %>!</p>
+    <% } else { %>
+        <p>Veuillez vous connecter.</p>
+    <% }
+    
+    const notes = new Map();
+
+        notes.set('Etudiant1', {
+            note : 10,
+            ue : 1,
+            statut : false
+        });
+
+        notes.set('Etudiant2', {
+            note : 15,
+            ue : 1,
+            statut : true
+        });
+        
+        notes.set('Etudiant3', {
+            note : 12,
+            ue : 2,
+            statut : false
+        });
+
+        notes.set('Etudiant4', {
+            note : 11,
+            ue : 2,
+            statut : false
+        });
+
+        notes.set('Etudiant5', {
+            note : 15,
+            ue : 2,
+            statut : true
+        });
+
+        notes.set('Etudiant6', {
+            note : 15,
+            ue : 3,
+            statut : false
+        });
+
+        notes.set('Etudiant7', {
+            note : 17,
+            ue : 3,
+            statut : true
+        }); %>
+
+    <button id="validerNotes">Valider toutes les notes</button>
+    
+    <table id="nonValide">
+        <caption>Notes non validées</caption>
+        <thead>
+            <tr>
+                <th>Étudiant</th>
+                <th>Note</th>
+                <th>UE</th>
+                <th>Validation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (const [key, value] of notes) { %>
+                <% if (!value.statut) { %>
+                    <tr>
+                        <td><%= key %></td>
+                        <td><%= value.note %></td>
+                        <td><%= value.ue %></td>
+                        <td>Non validée</td>
+                    </tr>
+                <% } %>
+            <% } %>
+        </tbody>
+    </table>
+
+    <table id="valide">
+        <caption>Notes validées</caption>
+        <thead>
+            <tr>
+                <th>Étudiant</th>
+                <th>Note</th>
+                <th>UE</th>
+                <th>Validation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (const [key, value] of notes) { %>
+                <% if (value.statut) { %>
+                    <tr>
+                        <td><%= key %></td>
+                        <td><%= value.note %></td>
+                        <td><%= value.ue %></td>
+                        <td>Validée</td>
+                    </tr>
+                <% } %>
+            <% } %>
+        </tbody>
+    </table>
+
+    <script>
+        const notes = <%= JSON.stringify(notes) %>;
+
+        document.getElementById('validerNotes').addEventListener('click', () => {
+            const nonValideTable = document.getElementById('nonValide').querySelector('tbody');
+            const valideTable = document.getElementById('valide').querySelector('tbody');
+
+            notes.forEach(([key, value]) => {
+                if (!value.statut) {
+                    value.statut = true;
+
+                    const row = document.querySelector(`#nonValide tr[data-key="${key}"]`);
+                    if (row) {
+                        row.querySelector('td:last-child').textContent = 'Validée';
+                        valideTable.appendChild(row);
+                    }
+                }
+            });
+        });
+
+    </script>
+
+</body>
+</html>
