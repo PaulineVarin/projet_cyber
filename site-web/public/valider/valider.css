@@ -1,17 +1,21 @@
+div {
+  display: flex;
+  flex-direction: row;
+}
 table {
     border-collapse: collapse;
     border: 2px solid rgb(140 140 140);
     font-family: sans-serif;
     font-size: 0.8rem;
     letter-spacing: 1px;
+    margin: 10px;
 }
   
-caption, button {
+caption {
   caption-side: bottom;
   padding: 10px;
   font-weight: bold;
 }
-
 
 thead {
   background-color: rgb(228 240 245);
@@ -48,3 +52,6 @@ tfoot td {
   font-weight: bold;
 }
 
+button {
+  margin: 10px;
+}

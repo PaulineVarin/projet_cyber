@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <link href= "/site-web/public/valider/valider.css" rel="stylesheet" type="text/css" />
+  </head>
+
+<body>
+    <div>
+        <table id="non_valide">
+            <caption>Notes non validées</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Nom étudiant</th>
+                    <th scope="col">Note</th>
+                    <th scope="col">UE</th>
+                    <th scope="col">Statut note</th>
+                </tr>
+            </thead>
+            <tbody id="table_body_non_val"></tbody>
+        </table>
+
+        <table id="valide">
+            <caption>Notes validées</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Nom étudiant</th>
+                    <th scope="col">Note</th>
+                    <th scope="col">UE</th>
+                    <th scope="col">Statut note</th>
+                </tr>
+            </thead>
+            <tbody id="table_body_val"></tbody>
+        </table>
+
+    </div>
+    
+    <button id="validerNotes" onclick="validerNotes()">Valider toutes les notes en attente</button>
+    <button onclick="location.href='/home'">Revenir à l'accueil</button>
+
+
+
+       
+<script src="/site-web/public/valider/valider.js"></script>
+</body>
+</html>

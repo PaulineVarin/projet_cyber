@@ -11,43 +11,50 @@ function getCookieByName(name) {
   document.getElementsByTagName("caption")[0].innerHTML = "Liste des notes pour l'UE" +  nb_ue ; 
 
   const notes = new Map();
-    notes.set('Pauline', {
+    notes.set('1', {
+        etudiant : 'Pauline',
         note : 10,
         statut : false,
         ue : 1 
     });
     
-    notes.set('Carolane', {
+    notes.set('2', {
+        etudiant : 'Carolane',
         note : 15,
         statut : false,
         ue : 1  
     });
 
-    notes.set('Yoan', {
+    notes.set('3', {
+        etudiant : 'Morgan',
         note : 12,
         statut : false,
         ue : 2  
     });
 
-    notes.set('Morgan', {
+    notes.set('4', {
+        etudiant : 'Carolane',
         note : 11,
         statut : false,
         ue : 2  
     });
 
-    notes.set('Ana', {
+    notes.set('5', {
+        etudiant : 'Pauline',
         note : 15,
         statut : false,
         ue : 3  
     });
 
-    notes.set('Julien', {
+    notes.set('6', {
+        etudiant : 'Morgan',
         note : 15,
         statut : true,
         ue : 3  
     });
 
-    notes.set('Eric', {
+    notes.set('7', {
+        etudiant : 'Carolane',
         note : 17,
         statut : true,
         ue : 3  
@@ -63,9 +70,9 @@ function getCookieByName(name) {
             ligne_table = document.createElement('tr')
 
             cellule_nom = document.createElement('th')
-            cellule_nom.innerHTML = key
+            cellule_nom.innerHTML = element.etudiant
 
-            cellule_note = document.createElement('td')
+            cellule_note = document.createElement('th')
             cellule_note.innerHTML = element.note
         
             cellule_statut = document.createElement('th')

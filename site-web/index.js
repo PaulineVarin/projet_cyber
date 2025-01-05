@@ -200,7 +200,7 @@ app.get('/ue3/ecriture_notes', keycloak.protect(), (req, res, next) => {
 });
 
 //Validation notes
-app.get('/ue1/validate', keycloak.protect(), (req, res, next) => {
+app.get('/ue1/valider_notes', keycloak.protect(), (req, res, next) => {
     const details = parseToken(req.session['keycloak-token']);
     const embedded_params = {};
 
@@ -210,12 +210,12 @@ app.get('/ue1/validate', keycloak.protect(), (req, res, next) => {
         embedded_params.username = details.preferred_username;
     }
 
-    res.render('validate', {
+    res.render('valider_notes', {
         user: embedded_params,
     });
 });
 
-app.get('/ue2/validate', keycloak.protect(), (req, res, next) => {
+app.get('/ue2/valider_notes', keycloak.protect(), (req, res, next) => {
     const details = parseToken(req.session['keycloak-token']);
     const embedded_params = {};
 
@@ -225,12 +225,12 @@ app.get('/ue2/validate', keycloak.protect(), (req, res, next) => {
         embedded_params.username = details.preferred_username;
     }
 
-    res.render('validate', {
+    res.render('valider_notes', {
         user: embedded_params,
     });
 });
 
-app.get('/ue3/validate', keycloak.protect(), (req, res, next) => {
+app.get('/ue3/valider_notes', keycloak.protect(), (req, res, next) => {
     const details = parseToken(req.session['keycloak-token']);
     const embedded_params = {};
 
@@ -240,7 +240,7 @@ app.get('/ue3/validate', keycloak.protect(), (req, res, next) => {
         embedded_params.username = details.preferred_username;
     }
 
-    res.render('validate', {
+    res.render('valider_notes', {
         user: embedded_params,
     });
 });
@@ -298,21 +298,21 @@ app.get('/ue1/validate', keycloak.enforcer(['ue_1:validate'], {
     resource_server_id: 'application-universite'
 }), (req, res) => {
     res.cookie('number_ue', '1', { expires: new Date(Date.now() + 900000), httpOnly: false });
-    return res.status(200).redirect('validate')
+    return res.status(200).redirect('valider_notes')
 });
 
 app.get('/ue2/validate', keycloak.enforcer(['ue_2:validate'], {
     resource_server_id: 'application-universite'
 }), (req, res) => {
     res.cookie('number_ue', '2', { expires: new Date(Date.now() + 900000), httpOnly: false });
-    return res.status(200).redirect('validate')
+    return res.status(200).redirect('valider_notes')
 });
 
 app.get('/ue3/validate', keycloak.enforcer(['ue_3:validate'], {
     resource_server_id: 'application-universite'
 }), (req, res) => {
     res.cookie('number_ue', '3', { expires: new Date(Date.now() + 900000), httpOnly: false });
-    return res.status(200).redirect('validate')
+    return res.status(200).redirect('valider_notes')
 });
 
 app.use((req, res, next) => {

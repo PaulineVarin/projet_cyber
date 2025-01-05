@@ -5,12 +5,12 @@
 		<title>Keycloak Example</title>
 	</head>
 	<body>
-		<h1>Home</h1>
+		<h1>Bienvenue sur l'application de gestion des notes</h1>
 		<%
 		try {
 			if (user) {
 		%>
-				<p><%= user.name %></p>
+				<p>Bonjour <%= user.name %></p>
 			<% } else { %>
 				<p>Please Login</p>
 			<% } %>
@@ -22,5 +22,6 @@
 		<% } %> 
 
 	<script src="/site-web/public/chargement_options_user.js"></script>
+	<button onclick="location.href='logout'"> Se déconnecter </button>
 	</body>
 </html>

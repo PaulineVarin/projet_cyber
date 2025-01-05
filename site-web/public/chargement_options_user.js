@@ -10,7 +10,7 @@ console.log(roleU)
 if(roleU.toLowerCase().includes("moniteur")) {
     console.log("moniteur")
     elem = document.createElement('p')
-    elem.innerHTML = "Aucune action disponible"
+    elem.innerHTML = "Aucune action disponible, merci de vous connecter avec un rôle qui permettent d'effectuer une action"
     document.getElementsByTagName("body")[0].appendChild(elem)
 } 
 
@@ -38,7 +38,6 @@ if (roleU.toLowerCase().includes("enseignant_titulaire")) {
 }
 
 if (roleU.toLowerCase().includes("charges_td")) {
-    console.log("hello")
     for (let item of roleU.split('-')) {
         if (item.toLowerCase().includes("charges_td")){
             nb_ue = item.split('_')[2]
