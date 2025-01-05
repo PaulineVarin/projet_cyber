@@ -2,13 +2,40 @@
 <html lang="en-US">
   <head>
     <meta charset="utf-8">
-    <link href= "/site-web/public/lecture/lecture.css" rel="stylesheet" type="text/css" />
+    <link href= "/site-web/public/ecriture/ecriture.css" rel="stylesheet" type="text/css" />
     <title>h</title>
   </head>
   
 
-<body>
-  <script src="/site-web/public/lecture/lecture.js">
-  </script>
+  <body>
+    <table>
+      <caption>
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Nom étudiant</th>
+          <th scope="col">Note</th>
+          <th scope="col">UE</th>
+          <th scope="col">Statut note</th>
+        </tr>
+      </thead>
+      <tbody id="table_body"></tbody>
+    </table>
 
-</body>
+    <form class="form-example">
+      <div class="form-example">
+        <label for="name">Nom Eleve </label>
+        <input type="text" name="name" id="name_form" required />
+      </div>
+      <div class="form-example">
+        <label for="note">Note</label>
+        <input type="number" name="note" id="note_form" min="0" max="20" value='' required />
+      </div>
+      <div class="form-example">
+        <input type="button" value="Valider la saisie" onclick="ajouterNote()"/>
+      </div>
+    </form>
+  
+  </body>
+  <button onclick="location.href='/home'">Revenir à l'accueil</button>
+  <script src="/site-web/public/ecriture/ecriture.js"></script>

@@ -5,7 +5,7 @@ function getCookieByName(name) {
 }
 
 nb_ue = getCookieByName("number_ue")
-
+document.title = "Validation notes pour l'UE" + nb_ue ;
 
 const notes = new Map();
     notes.set('1', {
@@ -121,7 +121,6 @@ function initTables() {
 
 
 function validerNotes() {
-    console.log("Hello validation")
     notes.forEach((value, key) => {
         value.statut = true
         notes.set(key, value);
